@@ -41,6 +41,18 @@ npm init minista my-minista-project -- --template ts
 yarn create minista my-minista-project --template ts
 ```
 
+`--template` にはリポジトリの[Templates](https://github.com/qrac/create-minista/tree/main/templates)が使えます。
+
+- `basic`: TypeScript・サイトマップ・Zip 圧縮等の納品基本セット
+- `ts`: TypeScript の最小限構成
+- `js`: JavaScript の最小限構成
+
+テンプレートとして任意の GitHub リポジトリを使用することもできます。
+
+```bash
+npm init minista my-minista-project -- --template qrac/minista-blog-with-rest-api
+```
+
 ## Fork & Respect!!
 
 - [astro/packages/create-astro at main · withastro/astro](https://github.com/withastro/astro/tree/main/packages/create-astro)
