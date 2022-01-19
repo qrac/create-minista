@@ -13,11 +13,7 @@ prompts.override(args)
 const { version } = JSON.parse(
   fs.readFileSync(new URL("../package.json", import.meta.url), "utf-8")
 )
-const POSTPROCESS_FILES = ["package.json", "project.json"]
-
-export function isEmpty(path: string) {
-  return fs.readdirSync(path).length === 0
-}
+//const POSTPROCESS_FILES = ["package.json", "project.json"]
 
 export function mkdirp(dir: string) {
   try {
@@ -31,38 +27,26 @@ export function mkdirp(dir: string) {
 export async function main() {
   console.log(`\n${bold("create-minista")} ${gray(`(v${version})`)}`)
 
-  let targetDir = args["_"][2] || "."
+  const cwd = args["_"][2] || "."
 
-  const defaultProjectName = !targetDir ? "minista-project" : targetDir
+  if (fs.existsSync(cwd)) {
+    if (fs.readdirSync(cwd).length > 0) {
+      const response = await prompts({
+        type: "confirm",
+        name: "forceOverwrite",
+        message: "Directory not empty. Continue [force overwrite]?",
+        initial: false,
+      })
+      if (!response.forceOverwrite) {
+        process.exit(1)
+      }
+      mkdirp(cwd)
+    }
+  } else {
+    mkdirp(cwd)
+  }
 
   const options = await prompts([
-    {
-      type: targetDir ? null : "text",
-      name: "projectName",
-      message: "Project name:",
-      initial: defaultProjectName,
-      onState: (state) =>
-        (targetDir = state.value.trim() || defaultProjectName),
-    },
-    {
-      type: () =>
-        !fs.existsSync(targetDir) || isEmpty(targetDir) ? null : "confirm",
-      name: "overwrite",
-      message: () =>
-        (targetDir === "."
-          ? "Current directory"
-          : `Target directory "${targetDir}"`) +
-        ` is not empty. Remove existing files and continue?`,
-    },
-    {
-      type: (_, { overwrite }: { overwrite?: boolean } = {}) => {
-        if (overwrite === false) {
-          throw new Error(red("✖") + " Operation cancelled")
-        }
-        return null
-      },
-      name: "overwriteChecker",
-    },
     {
       type: "select",
       name: "template",
@@ -79,7 +63,7 @@ export async function main() {
 
   const templateTarget = options.template.includes("/")
     ? options.template
-    : `qrac/create-minista/templates/${options.template}#latest`
+    : `qrac/create-minista/templates/${options.template}`
 
   const emitter = degit(`${templateTarget}${hash}`, {
     cache: false,
@@ -93,15 +77,15 @@ export async function main() {
 
   try {
     console.log(`${green(`>`)} ${gray(`Copying project files...`)}`)
-    await emitter.clone(targetDir)
+    await emitter.clone(cwd)
   } catch (err: any) {
     console.error(red(err.message))
     process.exit(1)
   }
 
-  await Promise.all(
+  /*await Promise.all(
     POSTPROCESS_FILES.map(async (file) => {
-      const fileLoc = path.resolve(path.join(targetDir, file))
+      const fileLoc = path.resolve(path.join(cwd, file))
 
       if (fs.existsSync(fileLoc)) {
         switch (file) {
@@ -110,7 +94,7 @@ export async function main() {
             const fileJSON = JSON.parse(
               await fs.promises.readFile(fileLoc, "utf8")
             )
-            fileJSON.name = targetDir
+            fileJSON.name = cwd
 
             await fs.promises.writeFile(
               fileLoc,
@@ -121,14 +105,14 @@ export async function main() {
         }
       }
     })
-  )
+  )*/
 
   console.log(bold(green("✔") + " Done!"))
 
   console.log("\nNext steps:")
   let i = 1
 
-  const relative = path.relative(process.cwd(), targetDir)
+  const relative = path.relative(process.cwd(), cwd)
   if (relative !== "") {
     console.log(`  ${i++}: ${bold(cyan(`cd ${relative}`))}`)
   }
