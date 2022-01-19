@@ -1,0 +1,13 @@
+{
+  "name": "create-minista",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Qrac",
+    "url": "https://qrac.jp"
+  },
+  "organization": {
+    "name": "QRANOKO",
+    "url": "https://qranoko.jp"
+  }
+}
