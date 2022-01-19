@@ -1,0 +1,24 @@
+{
+  "name": "minista-project-minimal-js",
+  "private": true,
+  "scripts": {
+    "dev": "minista",
+    "build": "minista build"
+  },
+  "prettier": {
+    "semi": false
+  },
+  "browserslist": [
+    "last 1 Chrome versions",
+    "last 1 Edge versions",
+    "last 1 Firefox versions",
+    "last 1 Safari versions",
+    "last 1 iOS versions",
+    "last 1 ChromeAndroid versions"
+  ],
+  "devDependencies": {
+    "minista": "^1.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

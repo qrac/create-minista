@@ -1,7 +1,36 @@
 {
   "name": "create-minista",
-  "version": "0.0.0",
+  "description": "Scaffolding for minista projects",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "create-minista": "./cli.mjs"
+  },
+  "files": [
+    "dist",
+    "cli.js"
+  ],
   "license": "MIT",
+  "homepage": "https://github.com/qrac/create-minista",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qrac/create-minista"
+  },
+  "bugs": {
+    "url": "https://github.com/qrac/create-minista/issues"
+  },
+  "keywords": [
+    "static-site-generator",
+    "ssg",
+    "coding",
+    "react",
+    "jsx",
+    "tsx",
+    "typescript",
+    "webpack",
+    "japanese",
+    "minista"
+  ],
   "author": {
     "name": "Qrac",
     "url": "https://qrac.jp"
@@ -9,5 +38,25 @@
   "organization": {
     "name": "QRANOKO",
     "url": "https://qranoko.jp"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "trash ./dist"
+  },
+  "prettier": {
+    "semi": false
+  },
+  "dependencies": {
+    "degit": "^2.8.4",
+    "kleur": "^4.1.4",
+    "prompts": "^2.4.2",
+    "yargs-parser": "^21.0.0"
+  },
+  "devDependencies": {
+    "@types/degit": "^2.8.3",
+    "@types/prompts": "^2.0.14",
+    "@types/yargs-parser": "^20.2.1",
+    "typescript": "^4.5.4"
   }
 }
