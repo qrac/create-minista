@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet"
 import { render } from "minista"
 
 const PageHome = () => {
-  return render(
+  return (
     <>
       <Helmet>
         <title>Home</title>
@@ -12,4 +12,4 @@ const PageHome = () => {
   )
 }
 
-export default PageHome
+export default render(<PageHome />)

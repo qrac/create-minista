@@ -15,7 +15,7 @@ dayjs.tz.setDefault("Asia/Tokyo")
 
 const PageDevelop = () => {
   const now = dayjs().tz().format("YYYY.MM.DD - HH:mm")
-  return render(
+  return (
     <Wrapper>
       <Helmet
         htmlAttributes={{ lang: "ja" }}
@@ -38,4 +38,4 @@ const PageDevelop = () => {
   )
 }
 
-export default PageDevelop
+export default render(<PageDevelop />)
