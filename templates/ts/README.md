@@ -1,1 +1,1 @@
-# minista-project-ts
+# minista-project

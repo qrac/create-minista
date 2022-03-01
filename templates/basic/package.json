@@ -1,5 +1,5 @@
 {
-  "name": "minista-project-basic",
+  "name": "minista-project",
   "private": true,
   "scripts": {
     "dev": "minista",

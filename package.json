@@ -42,6 +42,7 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
+    "test": "cd test && node ../cli.mjs",
     "clean": "trash ./dist"
   },
   "prettier": {
@@ -51,6 +52,7 @@
     "degit": "^2.8.4",
     "kleur": "^4.1.4",
     "prompts": "^2.4.2",
+    "replace-in-file": "^6.3.2",
     "yargs-parser": "^21.0.1"
   },
   "devDependencies": {

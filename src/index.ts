@@ -1,9 +1,11 @@
 import fs from "fs"
 import path from "path"
-import { bold, cyan, gray, green, red, yellow } from "kleur/colors"
+import { bold, cyan, gray, green, red, reset } from "kleur/colors"
 import prompts from "prompts"
 import degit from "degit"
 import yargs from "yargs-parser"
+import replace from "replace-in-file"
+
 import { TEMPLATES } from "./templates.js"
 
 const cleanArgv = process.argv.filter((arg) => arg !== "--")
@@ -13,7 +15,7 @@ prompts.override(args)
 const { version } = JSON.parse(
   fs.readFileSync(new URL("../package.json", import.meta.url), "utf-8")
 )
-//const POSTPROCESS_FILES = ["package.json", "project.json"]
+const POSTPROCESS_FILES = ["package.json", "project.json", "README.md"]
 
 export function mkdirp(dir: string) {
   try {
@@ -28,6 +30,8 @@ export async function main() {
   console.log(`\n${bold("create-minista")} ${gray(`(v${version})`)}`)
 
   const cwd = args["_"][2] || "."
+  const defaultProjectName = cwd === "." ? "minista-project" : cwd
+  const officialTemplatesPath = "qrac/create-minista/templates"
 
   if (fs.existsSync(cwd)) {
     if (fs.readdirSync(cwd).length > 0) {
@@ -48,6 +52,12 @@ export async function main() {
 
   const options = await prompts([
     {
+      type: "text",
+      name: "projectName",
+      message: reset("Project name (in the file):"),
+      initial: defaultProjectName,
+    },
+    {
       type: "select",
       name: "template",
       message: "Which template would you like to use?",
@@ -59,21 +69,20 @@ export async function main() {
     process.exit(1)
   }
 
+  const projectName = options.projectName
+    ? options.projectName
+    : defaultProjectName
   const hash = args.commit ? `#${args.commit}` : ""
 
   const templateTarget = options.template.includes("/")
     ? options.template
-    : `qrac/create-minista/templates/${options.template}`
+    : `${officialTemplatesPath}/${options.template}`
 
   const emitter = degit(`${templateTarget}${hash}`, {
     cache: false,
     force: true,
     verbose: false,
   })
-
-  /*const selectedTemplate = TEMPLATES.find(
-    (template) => template.value === options.template
-  )*/
 
   try {
     console.log(`${green(`>`)} ${gray(`Copying project files...`)}`)
@@ -83,29 +92,26 @@ export async function main() {
     process.exit(1)
   }
 
-  /*await Promise.all(
-    POSTPROCESS_FILES.map(async (file) => {
-      const fileLoc = path.resolve(path.join(cwd, file))
+  if (projectName !== "minista-project" && !options.template.includes("/")) {
+    await Promise.all(
+      POSTPROCESS_FILES.map(async (file) => {
+        const fileLoc = path.resolve(path.join(cwd, file))
 
-      if (fs.existsSync(fileLoc)) {
-        switch (file) {
-          case "package.json":
-          case "project.json": {
-            const fileJSON = JSON.parse(
-              await fs.promises.readFile(fileLoc, "utf8")
-            )
-            fileJSON.name = cwd
-
-            await fs.promises.writeFile(
-              fileLoc,
-              JSON.stringify(fileJSON, undefined, 2)
-            )
-            break
+        if (fs.existsSync(fileLoc)) {
+          try {
+            replace.sync({
+              files: fileLoc,
+              from: /minista-project/g,
+              to: projectName,
+            })
+            //console.log("Replacement:", results)
+          } catch (err) {
+            console.error("Error occurred:", err)
           }
         }
-      }
-    })
-  )*/
+      })
+    )
+  }
 
   console.log(bold(green("✔") + " Done!"))
 

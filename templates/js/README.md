@@ -1,1 +1,1 @@
-# minista-project-js
+# minista-project

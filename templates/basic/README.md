@@ -1,4 +1,4 @@
-# minista-project-basic
+# minista-project
 
 ## Demo
 
