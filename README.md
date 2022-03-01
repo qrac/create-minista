@@ -32,10 +32,10 @@ yarn create minista
 
 ```bash
 # npm 6.x
-npm init minista my-minista-project --template ts
+npm init minista@latest my-minista-project --template ts
 
 # npm 7+, extra double-dash is needed:
-npm init minista my-minista-project -- --template ts
+npm init minista@latest my-minista-project -- --template ts
 
 # yarn
 yarn create minista my-minista-project --template ts
