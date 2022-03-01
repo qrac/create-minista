@@ -20,15 +20,15 @@
     "last 1 ChromeAndroid versions"
   ],
   "devDependencies": {
-    "@types/react": "^17.0.38",
+    "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "bestzip": "^2.2.0",
     "classnames": "^2.3.1",
-    "dayjs": "^1.10.7",
-    "minista": "^1.1.0",
-    "minista-sitemap": "^1.0.0",
+    "dayjs": "^1.10.8",
+    "minista": "^1.2.0",
+    "minista-sitemap": "^1.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.6.2"
   }
 }
