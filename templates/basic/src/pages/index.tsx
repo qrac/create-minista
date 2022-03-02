@@ -1,18 +1,16 @@
-import { Helmet } from "react-helmet"
-import { render } from "minista"
+import { Head } from "minista"
 
-import { AppLayout } from "../components/app-layout"
+import AppLayout from "../components/app-layout"
 
 const PageHome = () => {
   return (
     <AppLayout>
-      <Helmet>
+      <Head>
         <title>Home</title>
-        <link rel="icon" href="/favicon.png" />
-      </Helmet>
+      </Head>
       <h1>Home</h1>
     </AppLayout>
   )
 }
 
-export default render(<PageHome />)
+export default PageHome

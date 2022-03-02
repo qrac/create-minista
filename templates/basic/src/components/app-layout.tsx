@@ -1,8 +1,17 @@
-export interface AppLayoutProps {
-  children?: React.ReactNode
+import AppHeader from "./app-header"
+import "./app-layout.css"
+
+type AppLayoutProps = {
+  children: React.ReactNode
 }
 
-export const AppLayout = (props: AppLayoutProps) => {
-  const { children } = props
-  return <main>{children}</main>
+const AppLayout = ({ children }: AppLayoutProps) => {
+  return (
+    <div className="app-layout">
+      <AppHeader />
+      {children}
+    </div>
+  )
 }
+
+export default AppLayout

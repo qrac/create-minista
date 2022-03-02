@@ -1,1 +1,1 @@
-import "./js/hello"
+import "./hello.js"

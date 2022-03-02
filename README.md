@@ -14,46 +14,30 @@
 
 ## About
 
-minista プロジェクトをテンプレートからスタートできます。
+You can start a minista project with a simple command entry.
 
 ## How To Use
 
-**NPM**
-
 ```bash
-npm init minista
+# Interactive
+$ npm init minista@next
+
+# Shortcut
+$ npm init minista@next my-minista-project -- --template ts
 ```
 
-**Yarn**
+| template | detail                                    |
+| -------- | ----------------------------------------- |
+| `basic`  | TypeScript, Sitemap, Delivery Zip, etc... |
+| `ts`     | TypeScript minimum configuration          |
+| `js`     | JavaScript minimum configuration          |
 
 ```bash
-yarn create minista
-```
-
-```bash
-# npm 6.x
-npm init minista@latest my-minista-project --template ts
-
-# npm 7+, extra double-dash is needed:
-npm init minista@latest my-minista-project -- --template ts
-
-# yarn
-yarn create minista my-minista-project --template ts
-```
-
-`--template` にはリポジトリの[Templates](https://github.com/qrac/create-minista/tree/main/templates)が使えます。
-
-- `basic`: TypeScript・サイトマップ・Zip 圧縮等の納品基本セット
-- `ts`: TypeScript の最小限構成
-- `js`: JavaScript の最小限構成
-
-テンプレートとして任意の GitHub リポジトリを使用することもできます。
-
-```bash
+# You can also use any GitHub repository
 npm init minista my-minista-project -- --template qrac/minista-blog-with-rest-api
 ```
 
-## Fork & Respect!!
+## Fork & Respect
 
 - [astro/packages/create-astro at main · withastro/astro](https://github.com/withastro/astro/tree/main/packages/create-astro)
 - [vite/packages/create-vite at main · vitejs/vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)
