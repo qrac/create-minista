@@ -3,9 +3,6 @@ import { defineMinistaUserConfig } from "minista"
 export default defineMinistaUserConfig({
   entry: "/src/assets/index.ts",
   vite: {
-    server: {
-      open: "/develop/",
-    },
     optimizeDeps: {
       include: [
         "dayjs",
