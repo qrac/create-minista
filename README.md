@@ -20,10 +20,10 @@ You can start a minista project with a simple command entry.
 
 ```bash
 # Interactive
-$ npm init minista@next
+$ npm init minista@latest
 
 # Shortcut
-$ npm init minista@next my-minista-project -- --template ts
+$ npm init minista@latest my-minista-project -- --template ts
 ```
 
 | template | detail                                    |
