@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/degit": "^2.8.3",
     "@types/prompts": "^2.0.14",
-    "@types/yargs-parser": "^20.2.1",
-    "typescript": "^4.6.2"
+    "@types/yargs-parser": "^21.0.0",
+    "typescript": "^4.6.3"
   }
 }
