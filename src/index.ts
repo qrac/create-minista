@@ -72,7 +72,7 @@ export async function main() {
   const projectName = options.projectName
     ? options.projectName
     : defaultProjectName
-  const hash = args.commit ? `#${args.commit}` : "#v2"
+  const hash = args.commit ? `#${args.commit}` : ""
 
   const templateTarget = options.template.includes("/")
     ? options.template
