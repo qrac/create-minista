@@ -1,14 +1,18 @@
 export const TEMPLATES = [
   {
-    title: "Basic (Typescript)",
-    value: "basic",
+    title: "Static Site (Typescript)",
+    value: "basic-site",
   },
   {
-    title: "Typescript",
-    value: "ts",
+    title: "SaaS Template (Typescript)",
+    value: "basic-saas",
   },
   {
-    title: "JavaScript",
-    value: "js",
+    title: "Minimal (Typescript)",
+    value: "minimal-ts",
+  },
+  {
+    title: "Minimal (JavaScript)",
+    value: "minimal-js",
   },
 ]
