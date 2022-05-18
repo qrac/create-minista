@@ -29,7 +29,7 @@ export function mkdirp(dir: string) {
 export async function main() {
   console.log(`\n${bold("create-minista")} ${gray(`(v${version})`)}`)
 
-  const cwd = args["_"][2] || "."
+  const cwd = (args["_"][2] as string) || "."
   const defaultProjectName = cwd === "." ? "minista-project" : cwd
   const officialTemplatesPath = "qrac/create-minista/templates"
 
