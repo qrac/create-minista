@@ -1,7 +1,7 @@
 export const TEMPLATES = [
   {
-    title: "Static Site (Typescript)",
-    value: "basic-site",
+    title: "Basic Site (Typescript)",
+    value: "basic",
   },
   {
     title: "SaaS Template (Typescript)",
@@ -9,10 +9,10 @@ export const TEMPLATES = [
   },
   {
     title: "Minimal (Typescript)",
-    value: "minimal-ts",
+    value: "ts",
   },
   {
     title: "Minimal (JavaScript)",
-    value: "minimal-js",
+    value: "js",
   },
 ]
