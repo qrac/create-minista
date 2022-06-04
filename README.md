@@ -26,12 +26,12 @@ $ npm init minista@latest
 $ npm init minista@latest my-minista-project -- --template ts
 ```
 
-| template     | detail                                    |
-| ------------ | ----------------------------------------- |
-| `basic`      | TypeScript, Basic static site components  |
-| `basic-sass` | TypeScript, Sitemap, Delivery Zip command |
-| `ts`         | TypeScript minimum configuration          |
-| `js`         | JavaScript minimum configuration          |
+| template     | detail                                   |
+| ------------ | ---------------------------------------- |
+| `basic`      | Basic web site starter (TypeScript)      |
+| `basic-saas` | Basic SaaS template starter (TypeScript) |
+| `ts`         | TypeScript minimum configuration         |
+| `js`         | JavaScript minimum configuration         |
 
 ```bash
 # You can also use any GitHub repository
