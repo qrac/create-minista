@@ -14,7 +14,7 @@
 
 ## About
 
-You can start a minista project with a simple command entry.
+簡単なコマンド入力で [minista](https://minista.qranoko.jp/) のプロジェクトを開始することができます。
 
 ## How To Use
 
@@ -26,12 +26,12 @@ $ npm init minista@latest
 $ npm init minista@latest my-minista-project -- --template ts
 ```
 
-| template     | detail                                   |
-| ------------ | ---------------------------------------- |
-| `basic`      | Basic web site starter (TypeScript)      |
-| `basic-saas` | Basic SaaS template starter (TypeScript) |
-| `ts`         | TypeScript minimum configuration         |
-| `js`         | JavaScript minimum configuration         |
+| テンプレート | 内容                                                                                        |
+| ------------ | ------------------------------------------------------------------------------------------- |
+| `basic`      | 静的サイト制作用 / ヘッダー・フッターなど毎度書くコンポーネント構成を内包（TypeScript）     |
+| `basic-saas` | SaaS テンプレート制作用 / 内容はブランクで納品目次, 納品用 Zip コマンドを内包（TypeScript） |
+| `ts`         | TypeScript を使った最低限の構成                                                             |
+| `js`         | JavaScript を使った最低限の構成                                                             |
 
 ```bash
 # You can also use any GitHub repository
