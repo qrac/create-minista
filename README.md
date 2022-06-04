@@ -14,7 +14,7 @@
 
 ## About
 
-簡単なコマンド入力で [minista](https://minista.qranoko.jp/) のプロジェクトを開始することができます。
+簡単なコマンド入力で [minista](https://minista.qranoko.jp/) のプロジェクトを開始できます。
 
 ## How To Use
 
