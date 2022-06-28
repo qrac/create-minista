@@ -25,7 +25,7 @@
     "@types/react-dom": "^17.0.16",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.3",
-    "minista": "^2.8.0",
+    "minista": "^2.8.1",
     "minista-sitemap": "^1.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
