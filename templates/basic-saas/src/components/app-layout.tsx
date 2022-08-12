@@ -3,7 +3,7 @@ import type { MinistaLocation } from "minista"
 import "./app-layout.css"
 
 type AppLayoutProps = {
-  location: MinistaLocation
+  location?: MinistaLocation
   children: React.ReactNode
 }
 

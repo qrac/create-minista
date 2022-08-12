@@ -6,7 +6,8 @@ import dayjs from "dayjs"
 import utc from "dayjs/plugin/utc.js"
 import timezone from "dayjs/plugin/timezone.js"
 
-import pjt from "../../project.json"
+import pkg from "../../package.json"
+import previews from "../assets/data/previews.json"
 
 export const frontmatter: FrontmatterProps = {
   layout: "none",
@@ -26,13 +27,13 @@ const PageIndex = () => {
           class: "minista-sitemap",
         }}
       >
-        <title>{pjt.name}</title>
+        <title>{pkg.name}</title>
       </Head>
       <Style />
-      <Header projectName={pjt.name} date={now} buttonLink={"/dist.zip"} />
+      <Header projectName={pkg.name} date={now} buttonLink={"/dist.zip"} />
       <Main>
-        <Nav title={pjt.sitemap.main.title}>
-          <List items={pjt.sitemap.main.items} />
+        <Nav title={previews.main.title}>
+          <List items={previews.main.items} />
         </Nav>
       </Main>
     </Wrapper>

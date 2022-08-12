@@ -2,9 +2,7 @@ import type { MinistaLocation } from "minista"
 
 import { Head } from "minista"
 
-import "./root.css"
-import pjt from "../project.json"
-import AppLayout from "./components/app-layout"
+import pkg from "../package.json"
 
 export type FrontmatterProps = {
   title?: string
@@ -24,22 +22,18 @@ export type PageProps = {
 }
 
 const Root = ({ location, frontmatter, children }: RootProps) => {
-  const siteTitle = pjt.name
+  const siteTitle = pkg.name
   const title = frontmatter?.title
     ? `${frontmatter?.title} - ${siteTitle}`
     : siteTitle
-  const favicon = "/assets/images/favicon.png"
+  const favicon = "/favicon.png"
   return (
     <>
       <Head>
         <title>{title}</title>
         <link rel="icon" href={favicon} />
       </Head>
-      {frontmatter?.layout !== "none" ? (
-        <AppLayout location={location}>{children}</AppLayout>
-      ) : (
-        <>{children}</>
-      )}
+      {children}
     </>
   )
 }
